@@ -31,7 +31,10 @@ export default function RootLayout({
 
         <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
           <Navbar />
-          {children}
+          <div className="min-h-screen mt-[80px]">
+
+            {children}
+          </div>
         </div>
       </body>
     </html>
