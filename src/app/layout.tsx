@@ -36,7 +36,7 @@ export default async function RootLayout({
 
         <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
           <Navbar session={session} />
-          <div className="min-h-screen mt-[80px]">
+          <div className="min-h-screen mt-[80px] max-w-7xl mx-auto">
 
             {children}
           </div>

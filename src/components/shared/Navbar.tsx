@@ -1,10 +1,14 @@
 'use client'
+import close from "@/assets/close.svg";
 import logo from "@/assets/logo.svg";
+import menu from "@/assets/menu.svg";
 import { styles } from '@/styles';
 import { signOut } from "next-auth/react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+
 
 export type UserProps = {
     user?: {
@@ -15,6 +19,7 @@ export type UserProps = {
 }
 const Navbar = ({ session }: { session: UserProps | null }) => {
     const pathname = usePathname();
+    const [toggle, setToggle] = useState(false);
 
 
     const isActive = (path: string) => pathname === path ? "text-white" : "text-secondary hover:text-white";
@@ -24,48 +29,7 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
 
             <div className="w-[93%] flex justify-between items-center max-w-7xl mx-auto ">
 
-                <div className="flex items-center ">
-
-                    <div className="relative lg:hidden">
-                        <div
-                            tabIndex={0}
-                            role="button"
-                            className="p-2 rounded-md hover:bg-gray-100 focus:outline-none"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                    d="M4 6h16M4 12h8m-8 6h16"
-                                />
-                            </svg>
-                        </div>
-                        <ul
-                            tabIndex={0}
-                            className="absolute mt-3 z-10 p-2 shadow-md bg-white rounded-md w-52"
-                        >
-                            <li className="py-2 px-4 hover:bg-gray-100">
-                                <Link href="/">Home</Link>
-                            </li>
-                            <li className="hover:text-gray-600">
-                                <Link href="/projects">Projects</Link>
-                            </li>
-                            <li className="hover:text-gray-600">
-                                <Link href="/blog">Blog</Link>
-                            </li>
-                            <li className="hover:text-gray-600">
-                                <Link href="/contact">Contact</Link>
-                            </li>
-                        </ul>
-                    </div>
-
+                <div className="w-full lg:w-auto justify-between flex items-center ">
                     <Link
                         href="/"
                         className="ml-4 text-xl font-semibold flex items-center gap-1 text-gray-800 hover:text-gray-600"
@@ -76,9 +40,55 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
                             <span className="sm:block hidden">|&nbsp; Portfolio</span>
                         </p>
                     </Link>
+
+                    <div className="relative lg:hidden">
+                        <div
+                            onClick={() => setToggle(!toggle)}
+                            tabIndex={0}
+                            role="button"
+                            className="p-2 h-10 w-10 rounded-md hover:bg-black-100 focus:outline-none"
+                        >
+                            <Image src={toggle ? close : menu} alt="menu" className="object-fill:cover" height={30} width={30} />
+                        </div>
+                        {
+                            toggle && <ul
+                                tabIndex={0}
+                                className="absolute mt-3 right-0 z-10 p-4  shadow-md bg-tertiary rounded-md w-52"
+                            >
+                                <li className="hover:text-gray-600 p-2">
+                                    <Link href="/" className={isActive('/')} >Home</Link>
+                                </li>
+                                <li className="hover:text-gray-600 p-2">
+                                    <Link href="/projects" className={isActive('/projects')}>Projects</Link>
+                                </li>
+                                <li className="hover:text-gray-600 p-2" >
+                                    <Link href="/blog" className={isActive('/blog')}>Blog</Link>
+                                </li>
+                                <li className="hover:text-gray-600 p-2">
+                                    <Link href="/contact" className={isActive('/contact')}>Contact</Link>
+                                </li>
+                                <li className="hover:text-gray-600 p-2 mb-2">
+                                    <Link href="/dashboard" className={isActive('/dashboard')}>Dashboard</Link>
+                                </li>
+                                {
+                                    session?.user ? (
+                                        <button onClick={() => signOut()} className="border border-red-500 text-red-500 px-5 py-2 rounded-full hover:bg-red-500 hover:text-black transition duration-200">
+                                            Logout
+                                        </button>) :
+                                        (<Link
+                                            href="/login"
+                                            className="border border-teal-500 text-teal-500 px-5 py-2 rounded-full hover:bg-teal-500 hover:text-black transition duration-200"
+                                        >
+                                            Login
+                                        </Link>)
+                                }
+                            </ul>
+                        }
+
+                    </div>
                 </div>
 
-                <div className="hidden lg:flex">
+                <div className="hidden lg:flex lg:ml-[-120px]">
                     <ul className="flex space-x-6 text-gray-800">
                         <li className="hover:text-gray-600">
                             <Link href="/" className={isActive('/')} >Home</Link>
@@ -98,7 +108,7 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
                     </ul>
                 </div>
 
-                <div className="flex items-center">
+                <div className="hidden md:flex items-center ">
 
                     {
                         session?.user ? (
