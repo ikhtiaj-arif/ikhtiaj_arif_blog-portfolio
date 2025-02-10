@@ -1,45 +1,32 @@
-"use client"
-import ProjectCard from '@/components/projects/ProjectCard';
-import { styles } from '@/styles';
-import { fadeIn, textVariant } from '@/utils/motion';
-import { motion } from 'framer-motion'
+import ProjectCard from "@/components/projects/ProjectCard";
 
-const ProjectsPage = () => {
+export default function ProjectsPage() {
     return (
-        <div>
-            ProjectsPage
-            <div>
-                <>
-                    <motion.div variants={textVariant()}>
-                        <p className={styles.sectionSubText}>My Works</p>
-                        <h2 className={styles.sectionHeadText}>Projects.</h2>
-                    </motion.div>
-                    <div className="w-full flex">
-                        <motion.p
-                            variants={fadeIn("left", "tween", 0.1, 1)}
-                            className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
-                        >
-                            The following projects showcase my skillset & experience as a
-                            full-stack developer through real-world examples which solved
-                            real-world problems. Projects are briefly described with the link to
-                            code repositorys and live examples. It reflects my skills and ability
-                            to solve complex problems, work on new and latest technologies and
-                            project management abilities.
-                        </motion.p>
-                    </div>
-                    <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-
-                        <ProjectCard />
-                        <ProjectCard />
-                        <ProjectCard />
-                        <ProjectCard />
-
-                    </div>
-                </>
+        <div className="pt-10">
+            {/* Section Title */}
+            <div className="mb-10 animate-fade-in">
+                <p className="section-sub-text">My Works</p>
+                <h2 className="section-head-text">Projects.</h2>
             </div>
 
+            {/* Description */}
+            <div className="w-full flex">
+                <p className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]  animate-fade-in delay-200">
+                    The following projects showcase my skillset & experience as a
+                    full-stack developer through real-world examples which solved real-world problems.
+                    Projects are briefly described with links to code repositories and live examples.
+                    They reflect my skills, ability to solve complex problems, work on new technologies,
+                    and project management abilities.
+                </p>
+            </div>
+
+            {/* Projects Grid */}
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+                <ProjectCard />
+            </div>
         </div>
     );
-};
-
-export default ProjectsPage;
+}

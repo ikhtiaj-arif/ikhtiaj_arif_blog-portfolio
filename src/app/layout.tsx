@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Hero from "@/components/Hero";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,12 +35,13 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative z-0 bg-primary`}
       >
 
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+        <div className="bg-hero-pattern bg-cover bg-no-repeat mt-[76px] bg-center">
           <Navbar session={session} />
-          <div className="min-h-screen mt-[80px] max-w-7xl mx-auto">
+          <Hero />
+        </div>
+        <div className="min-h-screen mt-[80px] max-w-7xl mx-auto">
 
-            {children}
-          </div>
+          {children}
         </div>
       </body>
     </html>

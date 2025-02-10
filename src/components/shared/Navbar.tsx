@@ -2,7 +2,7 @@
 import close from "@/assets/close.svg";
 import logo from "@/assets/logo.svg";
 import menu from "@/assets/menu.svg";
-import { styles } from '@/styles';
+
 import { signOut } from "next-auth/react";
 import Image from 'next/image';
 import Link from 'next/link';
@@ -25,7 +25,7 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
     const isActive = (path: string) => pathname === path ? "text-white" : "text-secondary hover:text-white";
 
     return (
-        <div className={`${styles.paddingX} w-full  py-5 fixed top-0 z-20 bg-primary`}>
+        <div className={`padding-x w-full  py-5 fixed top-0 z-20 bg-primary`}>
 
             <div className="w-[93%] flex justify-between items-center max-w-7xl mx-auto ">
 
