@@ -11,7 +11,7 @@ import ServiceCard from "./ServiceCard";
 
 const Intro = () => {
     return (
-        <>
+        <div className="py-10">
         <motion.div variants={textVariant()}>
           <p className={`section-sub-text`}>Introduction</p>
           <h2 className={`section-head-text`}>Overview.</h2>
@@ -33,7 +33,8 @@ const Intro = () => {
           {/* {services.map((service, index) => (
           ))} */}
         </div>
-      </>
+        </div>
+      
     );
 };
 
