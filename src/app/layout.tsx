@@ -39,7 +39,7 @@ export default async function RootLayout({
           <Navbar session={session} />
           <Hero />
         </div>
-        <div className="min-h-screen mt-[80px] max-w-7xl mx-auto">
+        <div className="min-h-screen max-w-7xl mx-auto">
 
           {children}
         </div>

@@ -13,8 +13,8 @@ const Experience = () => {
     return (
         <div className="py-10">
             <motion.div variants={textVariant()}>
-                <p className={`section-sub-text`}>Introduction</p>
-                <h2 className={`section-head-text`}>Overview.</h2>
+                <p className={`section-sub-text`}>I've done so far</p>
+                <h2 className={`section-head-text`}>Experience.</h2>
             </motion.div>
 
             <ul className="timeline timeline-snap-icon  max-md:timeline-compact timeline-vertical mt-20">
@@ -23,12 +23,16 @@ const Experience = () => {
                     <div className="timeline-middle  h-14 w-14 border-[3px] border-white rounded-full">
                         <Image src={icon} alt="image" className="h-10 w-10 rounded-full mx-auto mt-1" />
                     </div>
-                    <div className="timeline-start mb-10 md:text-end max-w-lg bg-tertiary p-6">
-                        <time className="font-mono italic">1984</time>
-                        <h3 className="text-white text-[24px] font-bold">First Macintosh computer</h3>
+                    <div className="timeline-start mb-10  max-w-lg bg-tertiary p-6">
+                        <time className="font-mono text-sm italic">JAN 2023 - APRIL 2023</time>
+                        <h3 className="text-white text-[24px] font-bold">Hellwet Softwere Ltd.</h3>
+                        <h4 className="font-mono   font-semibold italic">Full-stack developer</h4>
                         <ul className="mt-5 list-disc ml-5 space-y-2">
-                            <li className="text-white-100 text-[14px] pl-1 "> iMac is a family of all-in-one Mac desktop</li>
-                            <li className="text-white-100 text-[14px] pl-1 "> iMac is a family of all-in-one Mac desktop</li>
+                        
+
+
+                            <li className="text-white-100 text-[14px] pl-1 "> Learned the basics of programming and problem solving</li>
+                            <li className="text-white-100 text-[14px] pl-1 "> Learned about DataStructures and how it works.</li>
                             <li className="text-white-100 text-[14px] pl-1 "> iMac is a family of all-in-one Mac desktop</li>
                             <li className="text-white-100 text-[14px] pl-1 -tracking-wider"> iMac is a family of all-in-one Mac desktop</li>
                         </ul>

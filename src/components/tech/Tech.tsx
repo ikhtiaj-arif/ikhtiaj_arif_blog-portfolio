@@ -1,26 +1,69 @@
-import html from "@/assets/tech/html.png";
 import css from "@/assets/tech/css.png";
+import git from "@/assets/tech/git.png";
+import html from "@/assets/tech/html.png";
+import javascript from "@/assets/tech/javascript.png";
+import mongodb from "@/assets/tech/mongodb.png";
+import nodejs from "@/assets/tech/nodejs.png";
+import reactjs from "@/assets/tech/reactjs.png";
+import redux from "@/assets/tech/redux.png";
+import tailwind from "@/assets/tech/tailwind.png";
+import typescript from "@/assets/tech/typescript.png";
+
 import Image from "next/image";
 
-const techStack = [
-    { id: 1, name: "HTML 5", image: html },
-    { id: 2, name: "CSS 3", image: css },
-    { id: 3, name: "JavaScript", image: html },
-    { id: 4, name: "React", image: html },
-    { id: 5, name: "Next.js", image: html },
-    { id: 6, name: "Tailwind CSS", image: html },
-    { id: 7, name: "TypeScript", image: html },
-    { id: 8, name: "TypeScript", image: html },
-    { id: 9, name: "TypeScript", image: html },
-    { id: 10, name: "TypeScript", image: html },
+
+
+const technologies = [
+    {
+        name: "HTML 5",
+        icon: html,
+    },
+    {
+        name: "CSS 3",
+        icon: css,
+    },
+    {
+        name: "JavaScript",
+        icon: javascript,
+    },
+    {
+        name: "TypeScript",
+        icon: typescript,
+    },
+    {
+        name: "React JS",
+        icon: reactjs,
+    },
+    {
+        name: "Redux Toolkit",
+        icon: redux,
+    },
+    {
+        name: "Tailwind CSS",
+        icon: tailwind,
+    },
+    {
+        name: "Node JS",
+        icon: nodejs,
+    },
+    {
+        name: "MongoDB",
+        icon: mongodb,
+    },
+    {
+        name: "git",
+        icon: git,
+    },
+
+
 ];
 
 const Tech = () => {
     return (
-        <div className="flex flex-row flex-wrap justify-center gap-10 sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 ">
-            {techStack.map((tech) => (
-                <div key={tech.id} className="p-4 bg-gray-800 rounded-full text-center">
-                    <Image  src={tech.image} alt={tech.name} className="w-12 h-12 mx-auto" />
+        <div className="flex flex-row flex-wrap md:px-10 lg:px-32 justify-center gap-12">
+            {technologies.map((tech) => (
+                <div key={tech.name} className="p-4 bg-gray-800 rounded-full text-center shadow-md">
+                    <Image src={tech.icon} alt={tech.name} className="w-16 h-16 mx-auto" />
                     {/* <p className="mt-2">{tech.name}</p> */}
                 </div>
             ))}
