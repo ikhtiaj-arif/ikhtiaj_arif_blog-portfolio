@@ -21,11 +21,11 @@ const Sidebar = () => {
                 {/* Dashboard */}
                 <li>
                     <Link
-                        href="/dashboard"
-                        className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${isActive("/dashboard")}`}
+                        href="/"
+                        className={`flex text-white  font-bold items-center space-x-3 p-3 rounded-lg transition-all duration-300 `}
                     >
                         <FaHome className="h-5 w-5" />
-                        <span>Dashboard</span>
+                        <span>Home</span>
                     </Link>
                 </li>
 
@@ -42,20 +42,28 @@ const Sidebar = () => {
 
                 {/* Blogs Section */}
                 <li>
-                    <Link
-                        href="/dashboard/blogs"
+                    <div
                         onClick={() => toggleMenu("blogs")}
-                        className={`flex items-center justify-between w-full p-3 rounded-lg transition-all duration-300 ${isActive("/dashboard/blogs")}`}
+                        className={`flex items-center justify-between w-full p-3 rounded-lg transition-all duration-300 `}
                     >
                         <div className="flex items-center space-x-3">
                             <FaCog className="h-5 w-5" />
                             <span>Blogs</span>
                         </div>
                         <FaChevronDown className={`transition-transform ${openMenu === "blogs" ? "rotate-180" : ""}`} />
-                    </Link>
+                    </div>
 
                     {openMenu === "blogs" && (
                         <ul className="pl-8 mt-2 space-y-2">
+                            <li>
+                                <Link
+                                    href="/dashboard/blogs"
+
+                                    className={`block p-2 rounded-lg transition-all duration-300 ${isActive("/dashboard/blogs")}`}
+                                >
+                                    Blog List
+                                </Link>
+                            </li>
                             <li>
                                 <Link
                                     href="/dashboard/blogs/create-blog"
@@ -70,20 +78,28 @@ const Sidebar = () => {
 
                 {/* Projects Section */}
                 <li>
-                    <Link
-                        href="/dashboard/projects"
+                    <div
                         onClick={() => { toggleMenu("projects") }}
-                        className={`flex items-center justify-between w-full p-3 rounded-lg transition-all duration-300 ${isActive("/dashboard/projects")}`}
+                        className={`flex items-center justify-between w-full p-3 rounded-lg transition-all duration-300`}
                     >
                         <div className="flex items-center space-x-3">
                             <FaCog className="h-5 w-5" />
                             <span>Projects</span>
                         </div>
                         <FaChevronDown className={`transition-transform ${openMenu === "projects" ? "rotate-180" : ""}`} />
-                    </Link>
+                    </div>
 
                     {openMenu === "projects" && (
                         <ul className="pl-8 mt-2 space-y-2">
+                            <li>
+                                <Link
+
+                                    href="/dashboard/projects"
+                                    className={`block p-2 rounded-lg transition-all duration-300  ${isActive("/dashboard/projects")}}`}
+                                >
+                                    Project List
+                                </Link>
+                            </li>
                             <li>
                                 <Link
                                     href="/dashboard/projects/create"
@@ -92,8 +108,19 @@ const Sidebar = () => {
                                     Create Project
                                 </Link>
                             </li>
+
                         </ul>
                     )}
+                </li>
+                {/* message Info */}
+                <li>
+                    <Link
+                        href="/dashboard/messages"
+                        className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${isActive("/dashboard/user-info")}`}
+                    >
+                        <FaUser className="h-5 w-5" />
+                        <span>Messages</span>
+                    </Link>
                 </li>
             </ul>
         </div>

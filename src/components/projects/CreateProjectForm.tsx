@@ -8,7 +8,7 @@ export type ProjectFormValues = {
     description: string;
     tags: string[];
     live_link: string;
-    image?: File | null;
+    image?: File | string | null; 
 };
 
 const availableTags = ["React", "MongoDB", "Tailwind", "TypeScript"];
@@ -39,7 +39,9 @@ const CreateProjectForm = ({ initialValues, onSubmit, onClose }: Props) => {
     });
 
     useEffect(() => {
-        if (initialValues?.image instanceof File) {
+        if (initialValues?.image && typeof initialValues.image === 'string') {
+            setPreviewImage(initialValues.image);
+        } else if (initialValues?.image instanceof File) {
             setPreviewImage(URL.createObjectURL(initialValues.image));
         }
     }, [initialValues]);

@@ -4,42 +4,19 @@ import { fadeIn } from "@/utils/motion";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-import dorkar from "@/assets/dorkar.png";
-import git from "@/assets/github.png";
 import eye from "@/assets/eye.png";
 
 
-const data = {
-    name: "Dorkar Shop",
-    description:
-        "Web-based E-Commers platform that allows users to search, book, and buy products from various vendors, providing a convenient and efficient solution for daily shopping needs.",
-    tags: [
-        {
-            name: "react",
-            color: "blue-text-gradient",
-        },
-        {
-            name: "mongodb",
-            color: "green-text-gradient",
-        },
-        {
-            name: "tailwind",
-            color: "pink-text-gradient",
-        },
-        {
-            name: "TyepScript",
-            color: "blue-text-gradient",
-        },
-    ],
-    image: dorkar,
-    source_code_link: "https://github.com/TheOpenAi/DorkarShop-Client",
-    live_link: "https://dork-shop.web.app/"
+export type TProject = {
+    _id: string, description: string, live_link: string, image: string, tags: string[], name: string
+}
+type TProjectProp = {
+    project: TProject
 }
 
 
-
-const ProjectCard = () => {
-    const { description, live_link, source_code_link, image, tags, name } = data
+const ProjectCard = ({ project }: TProjectProp) => {
+    const { description, live_link, image, tags, name } = project
     return (
         <motion.div variants={fadeIn("up", "spring", 1 * 0.5, 0.75)}>
             <div className="bg-tertiary p-5 rounded-2xl sm:w-[350px] w-full">
@@ -47,6 +24,9 @@ const ProjectCard = () => {
                     <Image
                         src={image}
                         alt="name"
+                        layout="fill"
+                        objectFit="cover"
+                        unoptimized={true}
                         className="w-full h-full object-cover rounded-2xl"
                     />
                     <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
@@ -57,12 +37,14 @@ const ProjectCard = () => {
                         >
                             <Image
                                 src={eye}
+                                height={2}
+                                width={2}
                                 alt="Live-site"
                                 className="w-1/2 h-1/2 object-contain"
                             />
                         </div>
                         {/* for github */}
-                        <div
+                        {/* <div
                             onClick={() => window.open(source_code_link, "_blank")}
                             className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
                         >
@@ -71,7 +53,7 @@ const ProjectCard = () => {
                                 alt="github"
                                 className="w-1/2 h-1/2 object-contain"
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="mt-5 ">
@@ -80,8 +62,8 @@ const ProjectCard = () => {
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                     {tags.map((tag) => (
-                        <p key={tag.name} className={`text-[14px] ${tag.color}`}>
-                            #{tag.name}
+                        <p key={tag} className={`text-[14px] ${tag}`}>
+                            #{tag}
                         </p>
                     ))}
                 </div>

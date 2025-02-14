@@ -11,7 +11,7 @@ export type TBlog = {
     _id?: string;
     title: string;
     content: string;
-    image?: string | File;
+    image?: string | File | null
     user?: string;
 };
 
@@ -40,15 +40,14 @@ const BlogTable = ({ blogs }: TBlogProp) => {
 
             data.user = userEmail;
 
-            console.log(data);
-            return
+           
 
             if (data.image) {
                 const imageUrl = await handleImageUpload(data.image as File);
                 data.image = imageUrl as string;
             }
 
-            const response = await fetch(`http://localhost:5000/api/blog/${data?._id}`, {
+            const response = await fetch(`${process.env.BACKEND_URL}/blog/${data?._id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -80,7 +79,7 @@ const BlogTable = ({ blogs }: TBlogProp) => {
             return;
         }
         try {
-            const res = await fetch(`http://localhost:5000/api/blogs/${id}`, {
+            const res = await fetch(`${process.env.BACKEND_URL}/blogs/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

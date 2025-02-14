@@ -4,7 +4,7 @@ import ProjectTable from "@/components/projects/ProjectTable";
 
 
 const ProjectsPage = async () => {
-    const res = await fetch(`http://localhost:5000/api/projects`)
+    const res = await fetch(`${process.env.BACKEND_URL}/projects`)
     const data = await res.json();
 
     return (

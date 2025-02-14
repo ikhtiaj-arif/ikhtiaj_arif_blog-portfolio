@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 export type BlogFormValues = {
     title: string;
     content: string;
-    image?: File | null;
+    image?: File | string | null;
 };
 
 type Props = {

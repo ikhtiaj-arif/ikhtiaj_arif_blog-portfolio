@@ -10,7 +10,7 @@ import { FieldValues } from "react-hook-form";
 
 const CreateProjectPage = () => {
     const router = useRouter()
-    
+
 
     const handleCreate = async (data: FieldValues) => {
         try {
@@ -28,7 +28,7 @@ const CreateProjectPage = () => {
 
             // Extract the file from the form data
             const imageFile = data.image instanceof File ? data.image : null;
-            
+
             if (imageFile) {
                 const imageUrl = await handleImageUpload(imageFile);
                 data.image = imageUrl; // Store the uploaded image URL

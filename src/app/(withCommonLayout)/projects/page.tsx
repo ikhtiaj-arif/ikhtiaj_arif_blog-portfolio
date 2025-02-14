@@ -1,6 +1,10 @@
-import ProjectCard from "@/components/projects/ProjectCard";
+import ProjectCard, { TProject } from "@/components/projects/ProjectCard";
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+    const res = await fetch(`${process.env.BACKEND_URL}/projects`)
+    const data = await res.json();
+    const projectData = data?.data
+    console.log(data?.data);
     return (
         <div className="pt-10">
             {/* Section Title */}
@@ -22,10 +26,15 @@ export default function ProjectsPage() {
 
             {/* Projects Grid */}
             <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                {
+                    projectData?.map((project:TProject ) => (
+                        <ProjectCard key={project._id} project={project} />
+
+                    ))
+                }
+                {/* <ProjectCard />
                 <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
+                <ProjectCard /> */}
             </div>
         </div>
     );
