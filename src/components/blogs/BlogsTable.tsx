@@ -40,14 +40,14 @@ const BlogTable = ({ blogs }: TBlogProp) => {
 
             data.user = userEmail;
 
-           
+
 
             if (data.image) {
                 const imageUrl = await handleImageUpload(data.image as File);
                 data.image = imageUrl as string;
             }
 
-            const response = await fetch(`${process.env.BACKEND_URL}/blog/${data?._id}`, {
+            const response = await fetch(`https://blog-server-l2a3.vercel.app/api/blog/${data?._id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const BlogTable = ({ blogs }: TBlogProp) => {
             return;
         }
         try {
-            const res = await fetch(`${process.env.BACKEND_URL}/blogs/${id}`, {
+            const res = await fetch(`https://blog-server-l2a3.vercel.app/api/blogs/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -116,7 +116,7 @@ const BlogTable = ({ blogs }: TBlogProp) => {
                                 <tr key={blog._id} className="hover:bg-black-100 text-sm md:text-base">
                                     <td className="border border-gray-300 px-4 py-2">{blog.title}</td>
                                     <td className="border border-gray-300 px-4 py-2 text-center hidden lg:table-cell">
-                                        {blog.content.slice(0,50)}
+                                        {blog.content.slice(0, 50)}
                                     </td>
                                     <td className="border border-gray-300 px-4 py-2 text-center">
                                         <div className="flex items-center justify-center gap-2">

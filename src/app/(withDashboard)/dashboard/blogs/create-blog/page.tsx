@@ -2,6 +2,7 @@
 'use client'
 import BlogForm from '@/components/blogs/BlogForm';
 import { handleImageUpload } from '@/utils/imageGenerator';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FieldValues } from 'react-hook-form';
 
@@ -32,7 +33,7 @@ const CreateBlogPage = () => {
                 delete data.image; // Remove the image field if no file is provided
             }
 
-            const response = await fetch(`http://localhost:5000/api/blogs`, {
+            const response = await fetch(`https://blog-server-l2a3.vercel.app/api/blogs`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -57,7 +58,9 @@ const CreateBlogPage = () => {
             <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 ">
                 {/* Left Side - Illustration */}
                 <div className="flex items-center justify-center">
-                    <img src="/doodle.png" alt="Doodle" className="w-80 h-80 object-contain" />
+                    <Image layout="fill"
+                        objectFit="cover"
+                        unoptimized={true} src="/doodle.png" alt="Doodle" className="w-80 h-80 object-contain" />
                 </div>
 
                 {/* Right Side - Form */}

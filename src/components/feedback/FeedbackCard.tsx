@@ -24,7 +24,7 @@ const FeedbackCard = () => {
             </div>
             <Image
               src={image}
-              alt={`feedback-by-${name}`}
+              alt={`feedback-by`}
               className="h-10 w-10 rounded-full object-cover"
             />
           </div>

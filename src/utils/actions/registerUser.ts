@@ -7,7 +7,7 @@ export type UserData = {
 };
 
 export const registerUser = async (data: UserData) => {
-  const res = await fetch(`${process.env.BACKEND_URL}/register`, {
+  const res = await fetch(`https://blog-server-l2a3.vercel.app/api/register`, {
     method: "POST",
     headers: {
       "content-type": "application/json",

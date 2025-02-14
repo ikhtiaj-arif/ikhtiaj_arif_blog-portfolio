@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -8,7 +9,7 @@ export type ProjectFormValues = {
     description: string;
     tags: string[];
     live_link: string;
-    image?: File | string | null; 
+    image?: File | string | null;
 };
 
 const availableTags = ["React", "MongoDB", "Tailwind", "TypeScript"];
@@ -123,7 +124,9 @@ const CreateProjectForm = ({ initialValues, onSubmit, onClose }: Props) => {
                     />
                     {previewImage && (
                         <div className="mt-3">
-                            <img src={previewImage} alt="Preview" className="w-full h-40 object-cover rounded-lg" />
+                            <Image layout="fill"
+                                objectFit="cover"
+                                unoptimized={true} src={previewImage} alt="Preview" className="w-full h-40 object-cover rounded-lg" />
                         </div>
                     )}
                 </label>

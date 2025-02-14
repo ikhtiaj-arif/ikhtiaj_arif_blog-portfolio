@@ -31,7 +31,7 @@ const ContactForm = () => {
             }
             data.user = userEmail;
 
-            const response = await fetch(`${process.env.BACKEND_URL}/messages`, {
+            const response = await fetch(`https://blog-server-l2a3.vercel.app/api/messages`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const ContactForm = () => {
 
             alert("Message sent successfully!");
             reset();
-        } catch (error:any) {
+        } catch (error: any) {
             alert(error.message);
         }
     };

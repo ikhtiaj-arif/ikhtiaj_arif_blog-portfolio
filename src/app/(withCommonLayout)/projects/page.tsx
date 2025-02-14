@@ -1,7 +1,7 @@
 import ProjectCard, { TProject } from "@/components/projects/ProjectCard";
 
 export default async function ProjectsPage() {
-    const res = await fetch(`${process.env.BACKEND_URL}/projects`)
+    const res = await fetch(`https://blog-server-l2a3.vercel.app/api/projects`)
     const data = await res.json();
     const projectData = data?.data
     console.log(data?.data);
@@ -27,12 +27,12 @@ export default async function ProjectsPage() {
             {/* Projects Grid */}
             <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                 {
-                   projectData && projectData?.map((project:TProject ) => (
+                    projectData && projectData?.map((project: TProject) => (
                         <ProjectCard key={project._id} project={project} />
 
                     ))
                 }
-         
+
             </div>
         </div>
     );

@@ -6,7 +6,7 @@ import FeaturedProjects from "@/components/projects/FeaturedProjects";
 import Tech from "@/components/tech/Tech";
 
 export default async function Home() {
-  const res = await fetch(`http://localhost:5000/api/projects`)
+  const res = await fetch(`https://blog-server-l2a3.vercel.app/api/projects`)
   const data = await res.json();
   const projectData = data?.data
   console.log(projectData);

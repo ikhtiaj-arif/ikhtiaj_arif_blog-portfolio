@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactForm";
+import Image from "next/image";
 
 const ContactPage = () => {
     return (
@@ -12,14 +13,16 @@ const ContactPage = () => {
             {/* Description */}
             <div className="w-full flex">
                 <p className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]  animate-fade-in delay-200">
-                
+
                 </p>
             </div>
 
             <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 mt-10 gap-8 ">
                 {/* Left Side - Illustration */}
                 <div className="flex items-center justify-center">
-                    <img src="/doodle.png" alt="Doodle" className="w-80 h-80 object-contain" />
+                    <Image layout="fill"
+                        objectFit="cover"
+                        unoptimized={true} src="/doodle.png" alt="Doodle" className="w-80 h-80 object-contain" />
                 </div>
 
                 {/* Right Side - Form */}

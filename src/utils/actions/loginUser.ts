@@ -6,7 +6,7 @@ export type FormValues = {
 };
 
 export const loginUser = async (data: FormValues) => {
-  const res = await fetch(`${process.env.BACKEND_URL}/login`, {
+  const res = await fetch(`https://blog-server-l2a3.vercel.app/api/login`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
