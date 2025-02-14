@@ -27,14 +27,12 @@ export default async function ProjectsPage() {
             {/* Projects Grid */}
             <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                 {
-                    projectData?.map((project:TProject ) => (
+                   projectData && projectData?.map((project:TProject ) => (
                         <ProjectCard key={project._id} project={project} />
 
                     ))
                 }
-                {/* <ProjectCard />
-                <ProjectCard />
-                <ProjectCard /> */}
+         
             </div>
         </div>
     );

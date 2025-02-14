@@ -5,7 +5,11 @@ import Intro from "@/components/introduction/Intro";
 import FeaturedProjects from "@/components/projects/FeaturedProjects";
 import Tech from "@/components/tech/Tech";
 
-export default function Home() {
+export default async function Home() {
+  const res = await fetch(`http://localhost:5000/api/projects`)
+  const data = await res.json();
+  const projectData = data?.data
+  console.log(projectData);
   return (
     <>
       <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
@@ -18,7 +22,7 @@ export default function Home() {
         <Tech />
       </div>
       <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
-        <FeaturedProjects />
+        <FeaturedProjects projectData={projectData} />
       </div>
       <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
         <Feedback />

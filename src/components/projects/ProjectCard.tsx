@@ -16,6 +16,7 @@ type TProjectProp = {
 
 
 const ProjectCard = ({ project }: TProjectProp) => {
+
     const { description, live_link, image, tags, name } = project
     return (
         <motion.div variants={fadeIn("up", "spring", 1 * 0.5, 0.75)}>
