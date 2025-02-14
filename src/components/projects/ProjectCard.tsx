@@ -8,16 +8,23 @@ import eye from "@/assets/eye.png";
 
 
 export type TProject = {
-    _id: string, description: string, live_link: string, image: string, tags: string[], name: string
+    _id: string, description: string, live_link: string, image: string, tags: string[], title: string
 }
 type TProjectProp = {
     project: TProject
 }
 
+type GradientClass = "blue-text-gradient" | "green-text-gradient" | "pink-text-gradient" | "orange-text-gradient";
+
+const getRandomGradientClass = (): GradientClass => {
+    const gradientClasses: GradientClass[] = ["blue-text-gradient", "green-text-gradient", "pink-text-gradient", "orange-text-gradient"];
+    const randomIndex = Math.floor(Math.random() * gradientClasses.length);
+    return gradientClasses[randomIndex];
+};
 
 const ProjectCard = ({ project }: TProjectProp) => {
-
-    const { description, live_link, image, tags, name } = project
+    
+    const { description, live_link, image, tags, title } = project
     return (
         <motion.div variants={fadeIn("up", "spring", 1 * 0.5, 0.75)}>
             <div className="bg-tertiary p-5 rounded-2xl sm:w-[350px] w-full">
@@ -58,12 +65,12 @@ const ProjectCard = ({ project }: TProjectProp) => {
                     </div>
                 </div>
                 <div className="mt-5 ">
-                    <h3 className="text-white font-bolt text-[24px]">{name}</h3>
+                    <h3 className="text-white font-bolt text-[24px]">{title}</h3>
                     <p className="mt-2 text-secondary text-[14px]">{description}</p>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                     {tags.map((tag) => (
-                        <p key={tag} className={`text-[14px] ${tag}`}>
+                        <p key={tag} className={`text-[14px] ${getRandomGradientClass()}`}>
                             #{tag}
                         </p>
                     ))}

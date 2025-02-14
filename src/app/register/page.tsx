@@ -20,8 +20,6 @@ const RegisterPage = () => {
 
     const onSubmit = async (data: UserData) => {
 
-        console.log(data);
-        return
 
         try {
             const res = await registerUser(data)

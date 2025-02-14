@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
+import doodle from "@/assets/doodle.png";
 import CreateProjectForm from "@/components/projects/CreateProjectForm";
 import { handleImageUpload } from "@/utils/imageGenerator";
 import Image from "next/image";
@@ -61,10 +62,11 @@ const CreateProjectPage = () => {
         <div className="min-h-screen flex items-center justify-center bg-primary text-white">
             <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 ">
                 {/* Left Side - Illustration */}
-                <div className="flex items-center justify-center">
-                    <Image     layout="fill"
-                        objectFit="cover"
-                        unoptimized={true} src="/doodle.png" alt="Doodle" className="w-80 h-80 object-contain" />
+                <div className="hidden md:flex items-center justify-center">
+                    <Image
+                        height={480}
+                        width={480}
+                        src={doodle} alt="Doodle" className="object-contain" />
                 </div>
 
                 {/* Right Side - Form */}

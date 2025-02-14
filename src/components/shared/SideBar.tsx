@@ -32,7 +32,7 @@ const Sidebar = () => {
                 {/* User Info */}
                 <li>
                     <Link
-                        href="/dashboard/user-info"
+                        href="/dashboard"
                         className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${isActive("/dashboard/user-info")}`}
                     >
                         <FaUser className="h-5 w-5" />

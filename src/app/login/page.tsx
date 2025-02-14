@@ -22,8 +22,8 @@ const LoginPage = () => {
 
     const onSubmit = async (data: FormValues) => {
 
-        console.log(data);
-        return
+        // console.log(data);
+        
         try {
             const res = await loginUser(data)
             if (res.accessToken) {
@@ -114,7 +114,7 @@ const LoginPage = () => {
                         <button
 
                             onClick={() => signIn("google", {
-                                callbackUrl: 'http://localhost:3000/dashboard'
+                                callbackUrl: 'https://blog-portfolio-client.vercel.app/dashboard'
                             })}
 
                             className="flex items-center justify-center w-12 h-12 bg-white-100 rounded-full shadow-md hover:bg-gray-200">
@@ -127,7 +127,7 @@ const LoginPage = () => {
                         </button>
                         <button
                             onClick={() => signIn("github", {
-                                callbackUrl: 'http://localhost:3000/dashboard'
+                                callbackUrl: 'https://blog-portfolio-client.vercel.app/dashboard'
                             })}
                             className="flex items-center justify-center w-12 h-12 bg-white-100 rounded-full shadow-md hover:bg-gray-200">
                             <Image

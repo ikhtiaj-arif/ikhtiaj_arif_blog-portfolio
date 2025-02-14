@@ -124,9 +124,8 @@ const CreateProjectForm = ({ initialValues, onSubmit, onClose }: Props) => {
                     />
                     {previewImage && (
                         <div className="mt-3">
-                            <Image layout="fill"
-                                objectFit="cover"
-                                unoptimized={true} src={previewImage} alt="Preview" className="w-full h-40 object-cover rounded-lg" />
+                            <Image height={80} width={80}
+                                unoptimized={true} src={previewImage} alt="Preview" className=" object-cover rounded-lg" />
                         </div>
                     )}
                 </label>

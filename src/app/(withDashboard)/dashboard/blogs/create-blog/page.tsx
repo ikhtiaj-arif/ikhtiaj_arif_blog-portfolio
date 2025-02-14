@@ -5,6 +5,7 @@ import { handleImageUpload } from '@/utils/imageGenerator';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FieldValues } from 'react-hook-form';
+import doodle from "@/assets/doodle.png";
 
 const CreateBlogPage = () => {
     const router = useRouter()
@@ -58,9 +59,10 @@ const CreateBlogPage = () => {
             <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 ">
                 {/* Left Side - Illustration */}
                 <div className="flex items-center justify-center">
-                    <Image layout="fill"
-                        objectFit="cover"
-                        unoptimized={true} src="/doodle.png" alt="Doodle" className="w-80 h-80 object-contain" />
+                          <Image
+                        height={480}
+                        width={480}
+                        src={doodle} alt="Doodle" className="object-contain" />
                 </div>
 
                 {/* Right Side - Form */}

@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
+import arif from '@/assets/ikhtiaj.png';
 import Image from 'next/image';
-import React from 'react';
-import arif from '@/assets/ikhtiaj.png'
 
 const Hero = () => {
     return (
@@ -36,8 +35,8 @@ const Hero = () => {
                         {/* Add resume download button */}
                         <div className="mt-6">
                             <a
-                                href="/resume.pdf" // Update the path to your resume
-                                download="https://drive.google.com/drive/folders/1EisibhCJYkXG0pmga6U2ZUOHu1-IJC6C"
+                                href="/ikhtiaj_resume.pdf" // Update the path to your resume
+                                download="ikhtiaj_resume.pdf"
                                 className="inline-flex items-center px-6 py-3 bg-[#9e30c07a] text-white font-semibold rounded-lg hover:bg-[#7a1f8f] transition-colors duration-300"
                             >
                                 Download Resume

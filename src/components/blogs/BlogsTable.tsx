@@ -20,7 +20,7 @@ type TBlogProp = {
 };
 
 const BlogTable = ({ blogs }: TBlogProp) => {
-    console.log(blogs);
+    // console.log(blogs);
     const [selectedBlog, setSelectedBlog] = useState<TBlog | null>(null);
     const router = useRouter();
 

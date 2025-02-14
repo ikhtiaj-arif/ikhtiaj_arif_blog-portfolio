@@ -9,7 +9,7 @@ export default async function Home() {
   const res = await fetch(`https://blog-server-l2a3.vercel.app/api/projects`)
   const data = await res.json();
   const projectData = data?.data
-  console.log(projectData);
+  // console.log(projectData);
   return (
     <>
       <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >

@@ -23,7 +23,7 @@ const BlogPage = async () => {
 
                 </p>
             </div>
-            <div>
+            <div className="mt-20 flex flex-wrap justify-between">
                 {
                     blogData?.map((blog: TBlog) => (
                         <BlogCard key={blog._id} blog={blog} />
