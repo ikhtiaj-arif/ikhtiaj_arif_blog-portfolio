@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 
 type TBlog = {
-    image: string, title: string, content: string, user: string
+   _id:string, image: string, title: string, content: string, user: string
 }
 
 type TBlogProp = {
@@ -11,6 +12,9 @@ const BlogCard = ({ blog }: TBlogProp) => {
 
     const { image, title, content, user } = blog
     return (
+        <Link href={`/blog/${blog._id}`} >
+
+   
         <div className="bg-tertiary p-6 rounded-2xl sm:w-[400px] w-full">
             <div className="relative w-full h-[280px]">
                 <Image
@@ -31,6 +35,7 @@ const BlogCard = ({ blog }: TBlogProp) => {
                 <p className="text-white text-[14px]">By {user}</p>
             </div>
         </div>
+        </Link>
     );
 };
 
