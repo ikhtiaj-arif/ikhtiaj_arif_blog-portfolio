@@ -7,7 +7,7 @@ import { signOut } from "next-auth/react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export type UserProps = {
@@ -21,6 +21,11 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
     const pathname = usePathname();
     const [toggle, setToggle] = useState(false);
 
+    useEffect(() => {
+        if (session) {
+            localStorage.setItem("session", JSON.stringify(session));
+        }
+    }, [session]);
 
     const isActive = (path: string) => pathname === path ? "text-white" : "text-secondary hover:text-white";
 

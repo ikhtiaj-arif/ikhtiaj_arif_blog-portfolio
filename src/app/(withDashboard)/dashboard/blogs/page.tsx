@@ -1,9 +1,12 @@
-import React from 'react';
+import BlogTable from '@/components/blogs/BlogsTable';
 
-const BlogPage = () => {
+const BlogPage = async () => {
+    const res = await fetch(`http://localhost:5000/api/blogs`)
+    const data = await res.json();
+    console.log(data);
     return (
         <div>
-            BlogPage
+            <BlogTable blogs={data?.data} />
         </div>
     );
 };

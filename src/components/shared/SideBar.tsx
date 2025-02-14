@@ -1,50 +1,99 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaCog, FaHome, FaUser } from "react-icons/fa";
+import { useState } from "react";
+import { FaChevronDown, FaCog, FaHome, FaUser } from "react-icons/fa";
 
 const Sidebar = () => {
     const pathname = usePathname();
-    const isActive = (path: string) => pathname === path ? "text-white bg-black-100" : "text-secondary hover:text-white";
-    console.log(pathname);
+    const isActive = (path: string) =>
+        pathname === path ? "bg-gray-800 text-white font-semibold" : "text-gray-300 hover:text-white";
+
+    const [openMenu, setOpenMenu] = useState<string | null>(null);
+
+    const toggleMenu = (menu: string) => {
+        setOpenMenu(openMenu === menu ? null : menu);
+    };
+
     return (
-        <div className="bg-tertiary min-h-screen p-4 rounded-xl">
-            <ul className="space-y-4">
+        <div className="bg-gray-900 min-h-screen p-4 rounded-xl w-64 shadow-lg">
+            <ul className="space-y-2">
+                {/* Dashboard */}
                 <li>
                     <Link
                         href="/dashboard"
-                        className={`${isActive('/dashboard')} flex items-center sm:space-x-2 p-3 rounded-md hover:bg-black-100 text-gray-300`}
+                        className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${isActive("/dashboard")}`}
                     >
                         <FaHome className="h-5 w-5" />
-                        <span className="hidden sm:inline">Dashboard</span>
+                        <span>Dashboard</span>
                     </Link>
                 </li>
+
+                {/* User Info */}
                 <li>
                     <Link
                         href="/dashboard/user-info"
-                        className={`${isActive('/dashboard/user-info')} flex items-center sm:space-x-2 p-3 rounded-md hover:bg-black-100 text-gray-300`}
+                        className={`flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 ${isActive("/dashboard/user-info")}`}
                     >
                         <FaUser className="h-5 w-5" />
-                        <span className="hidden sm:inline">User Info</span>
+                        <span>User Info</span>
                     </Link>
                 </li>
+
+                {/* Blogs Section */}
                 <li>
                     <Link
                         href="/dashboard/blogs"
-                        className={`${isActive('/dashboard/blogs')} flex items-center sm:space-x-2 p-3 rounded-md hover:bg-black-100 text-gray-300`}
+                        onClick={() => toggleMenu("blogs")}
+                        className={`flex items-center justify-between w-full p-3 rounded-lg transition-all duration-300 ${isActive("/dashboard/blogs")}`}
                     >
-                        <FaCog className="h-5 w-5" />
-                        <span className="hidden sm:inline">Blogs</span>
+                        <div className="flex items-center space-x-3">
+                            <FaCog className="h-5 w-5" />
+                            <span>Blogs</span>
+                        </div>
+                        <FaChevronDown className={`transition-transform ${openMenu === "blogs" ? "rotate-180" : ""}`} />
                     </Link>
+
+                    {openMenu === "blogs" && (
+                        <ul className="pl-8 mt-2 space-y-2">
+                            <li>
+                                <Link
+                                    href="/dashboard/blogs/create-blog"
+                                    className={`block p-2 rounded-lg transition-all duration-300 ${isActive("/dashboard/blogs/create")}`}
+                                >
+                                    Create Blog
+                                </Link>
+                            </li>
+                        </ul>
+                    )}
                 </li>
+
+                {/* Projects Section */}
                 <li>
                     <Link
                         href="/dashboard/projects"
-                        className={`${isActive('/dashboard/projects')} flex items-center sm:space-x-2 p-3 rounded-md hover:bg-black-100 text-gray-300`}
+                        onClick={() => { toggleMenu("projects") }}
+                        className={`flex items-center justify-between w-full p-3 rounded-lg transition-all duration-300 ${isActive("/dashboard/projects")}`}
                     >
-                        <FaCog className="h-5 w-5" />
-                        <span className="hidden sm:inline">Projects</span>
+                        <div className="flex items-center space-x-3">
+                            <FaCog className="h-5 w-5" />
+                            <span>Projects</span>
+                        </div>
+                        <FaChevronDown className={`transition-transform ${openMenu === "projects" ? "rotate-180" : ""}`} />
                     </Link>
+
+                    {openMenu === "projects" && (
+                        <ul className="pl-8 mt-2 space-y-2">
+                            <li>
+                                <Link
+                                    href="/dashboard/projects/create"
+                                    className={`block p-2 rounded-lg transition-all duration-300 ${isActive("/dashboard/projects/create")}`}
+                                >
+                                    Create Project
+                                </Link>
+                            </li>
+                        </ul>
+                    )}
                 </li>
             </ul>
         </div>

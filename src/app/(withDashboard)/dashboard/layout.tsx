@@ -16,12 +16,12 @@ export default function DashboardLayout({
 
 
     return (
-        <div className="min-h-screen my-2">
-            <div className="flex justify-between">
-                <div className="w-[20%]">
+        <div className="min-h-screen">
+            <div className="flex ">
+                <div className="w-[17%]">
                     <Sidebar />
                 </div>
-                <div className="w-[80%] rounded-xl ml-2">{children}</div>
+                <div className="w-[83%] rounded-xl">{children}</div>
             </div>
         </div>
     );
