@@ -1,4 +1,5 @@
 import Contact from "@/components/Contact";
+import Courses from "@/components/courses/Courses";
 import Experience from "@/components/experience/Experience";
 import Feedback from "@/components/feedback/Feedback";
 import Intro from "@/components/introduction/Intro";
@@ -14,6 +15,9 @@ export default async function Home() {
     <>
       <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
         <Intro />
+      </div>
+      <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
+        <Courses />
       </div>
       <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
         <Experience />

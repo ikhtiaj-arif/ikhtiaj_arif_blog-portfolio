@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import arif from '@/assets/ikhtiaj.png';
+import arif from '@/assets/ikhtiaj.webp';
 import Image from 'next/image';
 
 const Hero = () => {
@@ -19,8 +19,8 @@ const Hero = () => {
                             Hi, I'm <span className="text-[#9e30c0]">Arif</span>
                         </h1>
                         <p className={`hero-sub-text mt-2 text-white-100`}>
-                            MERN stack developer, I develop <br className="sm:block hidden" />{" "}
-                            full-stack web applications{" "}
+                            Full stack developer, I design and build <br className="sm:block hidden" />{" "}
+                         web applications that deliver  performance, <br className="sm:block hidden" />{" "} scalability, and a seamless <br className="sm:block hidden" />{" "} user experience. {" "}
                         </p>
 
                         {/* Add your photo */}
@@ -28,7 +28,7 @@ const Hero = () => {
                             <Image
                                 src={arif} // Update the path to your photo
                                 alt="Arif"
-                                className="w-32 h-32 rounded-full object-cover border-2 border-[#9e30c0]"
+                                className="w-[13rem] h-[13rem] rounded-full object-cover border-2 border-[#9e30c0]"
                             />
                         </div>
 
@@ -45,12 +45,6 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* Scroll indicator */}
-                <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
-                    <a href="#about">
-                        <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2"></div>
-                    </a>
-                </div>
             </section>
         </div>
     );

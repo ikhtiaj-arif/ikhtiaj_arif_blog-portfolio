@@ -1,22 +1,19 @@
 'use client'
 
-import { fadeIn } from "@/utils/motion";
-import { motion } from "framer-motion";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { FC } from "react";
-import { StaticImageData } from "next/image";
 
 interface ServiceCardProps {
   index: number;
   title: string;
-   icon: StaticImageData ;
+  icon: StaticImageData;
 }
 
-const ServiceCard: FC<ServiceCardProps> = ({ index, title, icon }) => {
+const ServiceCard: FC<ServiceCardProps> = ({ title, icon }) => {
   return (
     <div className="xs:w-[250px] w-full">
-      <motion.div
-        variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
+      <div
+
         className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
       >
         <div
@@ -27,7 +24,7 @@ const ServiceCard: FC<ServiceCardProps> = ({ index, title, icon }) => {
             {title}
           </h3>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

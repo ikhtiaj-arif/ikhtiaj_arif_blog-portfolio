@@ -1,23 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client'
 
-import { fadeIn, textVariant } from "@/utils/motion";
-import { motion } from "framer-motion";
-import React from "react";
+import backend from "@/assets/backend.png";
+import creator from "@/assets/creator.png";
+import mobile from "@/assets/mobile.png";
+import web from "@/assets/web.png";
 import ServiceCard from "./ServiceCard";
-import web from "@/assets/web.png"
-import mobile from "@/assets/mobile.png"
-import backend from "@/assets/backend.png"
-import creator from "@/assets/creator.png"
 
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Frontend Engineer",
     icon: web,
   },
   {
-    title: "MERN stack Developer",
+    title: "Full-stack Developer",
     icon: mobile,
   },
   {
@@ -25,7 +22,7 @@ const services = [
     icon: backend,
   },
   {
-    title: "Researcher",
+    title: "Continuous Learner",
     icon: creator,
   },
 ];
@@ -34,12 +31,16 @@ const services = [
 const Intro = () => {
   return (
     <div className="py-10">
-      <motion.div variants={textVariant()}>
+      <div >
         <p className={`section-sub-text`}>Introduction</p>
         <h2 className={`section-head-text`}>Overview.</h2>
-      </motion.div>
-      <motion.p
-        variants={fadeIn("left", "tween", 0.1, 1)}
+      </div>
+      <p
+        className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+      >
+        I&apos;m a full-stack web developer with 2 years of experience, currently focused on frontend development. I specialize in building scalable and high-performance web applications using modern technologies like React, Redux, Next.js, Node.js, and TypeScript. I have hands-on expertise with both SQL and NoSQL databases including PostgreSQL and MongoDB, using tools like Prisma and Mongoose for seamless data handling. I'm passionate about solving real-world problems, continuously learning, and delivering clean, efficient code that brings ideas to life.
+      </p>
+      {/* <p
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
         I&apos;m a skilled web developer with experience in MERN stack, JavaScript,
@@ -48,7 +49,7 @@ const Intro = () => {
         deeply with fellow developers and clients to get scalable and efficient
         solutions to real-world problems. Let's work together and turn your
         vision into reality.
-      </motion.p>
+      </p> */}
 
       <div className="mt-20 flex flex-wrap gap-10">
         {services.map((service, index) => (

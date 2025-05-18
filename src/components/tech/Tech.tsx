@@ -3,8 +3,11 @@ import git from "@/assets/tech/git.png";
 import html from "@/assets/tech/html.png";
 import javascript from "@/assets/tech/javascript.png";
 import mongodb from "@/assets/tech/mongodb.png";
+import next from "@/assets/tech/next.png";
 import nodejs from "@/assets/tech/nodejs.png";
-import reactjs from "@/assets/tech/reactjs.png";
+import postgre from "@/assets/tech/postgre.png";
+import prisma from "@/assets/tech/prisma.png";
+import react from "@/assets/tech/reactjs.png";
 import redux from "@/assets/tech/redux.png";
 import tailwind from "@/assets/tech/tailwind.png";
 import typescript from "@/assets/tech/typescript.png";
@@ -14,14 +17,7 @@ import Image from "next/image";
 
 
 const technologies = [
-    {
-        name: "HTML 5",
-        icon: html,
-    },
-    {
-        name: "CSS 3",
-        icon: css,
-    },
+
     {
         name: "JavaScript",
         icon: javascript,
@@ -32,11 +28,23 @@ const technologies = [
     },
     {
         name: "React JS",
-        icon: reactjs,
+        icon: react,
     },
     {
         name: "Redux Toolkit",
         icon: redux,
+    },
+    {
+        name: "NextJs",
+        icon: next,
+    },
+    {
+        name: "Prisma",
+        icon: prisma,
+    },
+    {
+        name: "PostgreSql",
+        icon: postgre,
     },
     {
         name: "Tailwind CSS",
@@ -54,6 +62,15 @@ const technologies = [
         name: "git",
         icon: git,
     },
+    {
+        name: "HTML 5",
+        icon: html,
+    },
+    {
+        name: "CSS 3",
+        icon: css,
+    },
+
 
 
 ];
