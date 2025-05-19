@@ -3,7 +3,6 @@ import close from "@/assets/close.svg";
 import logo from "@/assets/logo.svg";
 import menu from "@/assets/menu.svg";
 
-import { signOut } from "next-auth/react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
@@ -72,10 +71,10 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
                                 <li className="hover:text-gray-600 p-2">
                                     <Link href="/contact" className={isActive('/contact')}>Contact</Link>
                                 </li>
-                                <li className="hover:text-gray-600 p-2 mb-2">
+                                {/* <li className="hover:text-gray-600 p-2 mb-2">
                                     <Link href="/dashboard" className={isActive('/dashboard')}>Dashboard</Link>
-                                </li>
-                                {
+                                </li> */}
+                                {/* {
                                     session?.user ? (
                                         <button onClick={() => signOut()} className="border border-red-500 text-red-500 px-5 py-2 rounded-full hover:bg-red-500 hover:text-black transition duration-200">
                                             Logout
@@ -86,7 +85,7 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
                                         >
                                             Login
                                         </Link>)
-                                }
+                                } */}
                             </ul>
                         }
 
@@ -107,15 +106,15 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
                         <li className="hover:text-gray-600">
                             <Link href="/contact" className={isActive('/contact')}>Contact</Link>
                         </li>
-                        <li className="hover:text-gray-600">
+                        {/* <li className="hover:text-gray-600">
                             <Link href="/dashboard" className={isActive('/dashboard')}>Dashboard</Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
 
-                <div className="hidden md:flex items-center ">
+                <div className="hidden md:flex items-center px-5">
 
-                    {
+                    {/* {
                         session?.user ? (
                             <button onClick={() => signOut()} className="border border-red-500 text-red-500 px-5 py-2 rounded-full hover:bg-red-500 hover:text-black transition duration-200">
                                 Logout
@@ -126,7 +125,7 @@ const Navbar = ({ session }: { session: UserProps | null }) => {
                             >
                                 Login
                             </Link>)
-                    }
+                    } */}
                 </div>
             </div>
         </div>

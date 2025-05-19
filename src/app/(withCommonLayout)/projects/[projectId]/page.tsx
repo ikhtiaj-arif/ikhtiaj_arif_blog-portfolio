@@ -13,14 +13,17 @@ const ProjectDetailsPage = async ({ params }: { params: Promise<{ projectId: str
     const projectData = await res.json();
     const project: TProject = projectData?.data
 
+    console.log(project);
+
     return (
         <div className="max-w-5xl mx-auto py-10 px-5">
-            <h1 className="text-3xl font-bold text-white">{project.title}</h1>
+            <h1 className="text-3xl font-bold text-white">{project?.title}</h1>
 
             <div className="mt-6 relative w-full h-96">
                 <Image
-                    src={project.image}
-                    alt={project.title}
+                    src={project?.image}
+                    alt={project?.title}
+
                     layout="fill"
                     objectFit="cover"
                     className="rounded-xl"
