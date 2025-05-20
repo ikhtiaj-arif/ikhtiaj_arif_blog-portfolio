@@ -23,8 +23,9 @@ const ProjectDetailsPage = async ({ params }: { params: Promise<{ projectId: str
                 <Image
                     src={project?.image}
                     alt={project?.title}
-
-                    layout="fill"
+                    height={380}
+                    width={380}
+                
                     objectFit="cover"
                     className="rounded-xl"
                 />
@@ -40,10 +41,20 @@ const ProjectDetailsPage = async ({ params }: { params: Promise<{ projectId: str
                 ))}
             </div>
 
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col md:flex-row gap-3 ">
                 <Link href={project.live_link} target="_blank">
                     <button className="bg-accent hover:bg-purple-500 text-white font-bold py-3 px-5 rounded-lg transition-all">
                         View Live Project
+                    </button>
+                </Link>
+                <Link href={project.source_code_link_client} target="_blank">
+                    <button className="bg-accent hover:bg-purple-500  text-white font-bold py-3 px-5 rounded-lg transition-all">
+                        Client Source Code
+                    </button>
+                </Link>
+                <Link href={project.source_code_link_server} target="_blank">
+                    <button className="bg-accent hover:bg-purple-500 text-white font-bold py-3 px-5 rounded-lg transition-all">
+                        Server Source Code
                     </button>
                 </Link>
             </div>

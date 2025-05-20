@@ -9,7 +9,12 @@ import Link from "next/link";
 
 
 export type TProject = {
-    _id: string, description: string, live_link: string, image: string, tags: string[], title: string
+    _id: string, description: string,
+    live_link: string,
+    source_code_link_client: string,
+    source_code_link_server: string,
+    image: string, tags: string[],
+    title: string
 }
 type TProjectProp = {
     project: TProject
@@ -68,7 +73,7 @@ const ProjectCard = ({ project }: TProjectProp) => {
                     </div>
                     <div className="mt-5 ">
                         <h3 className="text-white font-bolt text-[24px]">{title}</h3>
-                        <p className="mt-2 text-secondary text-[14px]">{description}</p>
+                        <p className="mt-2 text-secondary text-[14px]">{description.slice(0, 90)}...</p>
                     </div>
                     <div className="mt-4 flex flex-wrap gap-2">
                         {tags.map((tag) => (
