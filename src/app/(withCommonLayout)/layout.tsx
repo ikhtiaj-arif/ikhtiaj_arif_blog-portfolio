@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import { authOptions } from "@/utils/authOptions";
 import type { Metadata } from "next";
@@ -30,6 +31,7 @@ export default async function RootLayout({
 
                 {children}
             </div>
+            <Footer />
         </>
 
     );

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import arif from '@/assets/ikhtiaj.webp';
 import Image from 'next/image';
+import TypingText from './shared/TypingText';
 
 const Hero = () => {
     return (
@@ -15,12 +16,19 @@ const Hero = () => {
                     </div>
 
                     <div>
-                        <h1 className={`text-white hero-head-text`}>
+                        {/* <h1 className={`text-white hero-head-text`}>
                             Hi, I'm <span className="text-[#9e30c0]">Arif</span>
-                        </h1>
+                        </h1> */}
+                        <TypingText
+                            text={
+                                <h1 className={`text-white hero-head-text`}>
+                                    Hi, I'm <span className="text-[#9e30c0]">Arif</span>
+                                </h1>
+                            }
+                        />
                         <p className={`hero-sub-text mt-2 text-white-100`}>
                             Full stack developer, I design and build <br className="sm:block hidden" />{" "}
-                         web applications that deliver  performance, <br className="sm:block hidden" />{" "} scalability, and a seamless <br className="sm:block hidden" />{" "} user experience. {" "}
+                            web applications that deliver  performance, <br className="sm:block hidden" />{" "} scalability, and a seamless <br className="sm:block hidden" />{" "} user experience. {" "}
                         </p>
 
                         {/* Add your photo */}

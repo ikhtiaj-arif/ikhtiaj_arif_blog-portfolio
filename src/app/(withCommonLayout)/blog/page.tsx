@@ -9,7 +9,7 @@ const BlogPage = async () => {
     const blogData = data?.data
 
     return (
-        <div className="pt-10">
+        <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0">
             {/* Section Title */}
             <div className="mb-10 animate-fade-in">
                 <p className="section-sub-text">My Blogs</p>
@@ -23,7 +23,7 @@ const BlogPage = async () => {
 
                 </p>
             </div>
-            <div className="mt-20 flex flex-wrap justify-between">
+            <div className="mt-20 flex flex-wrap gap-10 justify-between">
                 {
                     blogData?.map((blog: TBlog) => (
                         <BlogCard key={blog._id} blog={blog} />
