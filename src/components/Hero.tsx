@@ -7,10 +7,10 @@ import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
 import TypingText from './shared/TypingText';
 
 const socialLinks = [
-    { icon: FaGithub, href: "https://github.com", color: "hover:text-white" },
-    { icon: FaLinkedin, href: "https://linkedin.com", color: "hover:text-blue-500" },
-    { icon: FaTwitter, href: "https://twitter.com", color: "hover:text-sky-400" },
-    { icon: FaFacebook, href: "https://facebook.com", color: "hover:text-blue-600" },
+    { icon: FaGithub, href: "https://github.com/ikhtiaj-arif", color: "hover:text-white" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/ikhtiaj-arif/", color: "hover:text-blue-500" },
+    { icon: FaTwitter, href: "https://x.com/ikhtiaj_arif", color: "hover:text-sky-400" },
+    { icon: FaFacebook, href: "https://www.facebook.com/IkhtiajArif", color: "hover:text-blue-600" },
 ];
 
 const Hero = () => {

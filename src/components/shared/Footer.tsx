@@ -42,13 +42,13 @@ export default function Footer() {
                         <a href="https://github.com/ikhtiaj-arif" target="_blank" rel="noopener noreferrer" className="p-2 bg-tertiary rounded-full hover:bg-accent/20 hover:text-accent transition-all">
                             <Github className="w-5 h-5" />
                         </a>
-                        <a href="https://www.linkedin.com/feed/?trk=public_post_google-one-tap-submit" target="_blank" rel="noopener noreferrer" className="p-2 bg-tertiary rounded-full hover:bg-accent/20 hover:text-accent transition-all">
+                        <a href="https://www.linkedin.com/in/ikhtiaj-arif/" target="_blank" rel="noopener noreferrer" className="p-2 bg-tertiary rounded-full hover:bg-accent/20 hover:text-accent transition-all">
                             <Linkedin className="w-5 h-5" />
                         </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 bg-tertiary rounded-full hover:bg-accent/20 hover:text-accent transition-all">
+                        <a href="https://x.com/ikhtiaj_arif" target="_blank" rel="noopener noreferrer" className="p-2 bg-tertiary rounded-full hover:bg-accent/20 hover:text-accent transition-all">
                             <Twitter className="w-5 h-5" />
                         </a>
-                        <a href="https://www.facebook.com/IkhtiajArif/" target="_blank" rel="noopener noreferrer" className="p-2 bg-tertiary rounded-full hover:bg-accent/20 hover:text-accent transition-all">
+                        <a href="https://www.facebook.com/IkhtiajArif" target="_blank" rel="noopener noreferrer" className="p-2 bg-tertiary rounded-full hover:bg-accent/20 hover:text-accent transition-all">
                             <Facebook className="w-5 h-5" />
                         </a>
                     </div>

@@ -41,7 +41,7 @@ const Experience = async () => {
                                 <h3 className="text-white text-[24px] font-bold">{experience.company_name}</h3>
                                 <h4 className="text-secondary font-semibold text-[18px] mb-2">{experience.job_title}</h4>
                                 <time className="text-xs font-semibold text-accent tracking-wider uppercase mb-5 block">{experience.duration}</time>
-                                
+
                                 <ul className={`mt-5 list-disc space-y-2 ${idx % 2 === 0 ? 'md:mr-5 mr-0 md:list-inside pl-5 md:pl-0' : 'ml-5'}`}>
                                     {experience.bullet_points.map((point, i) => (
                                         <li key={i} className="text-white-100 text-[14px] leading-relaxed">

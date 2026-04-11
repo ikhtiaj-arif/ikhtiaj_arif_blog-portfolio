@@ -5,13 +5,12 @@ import { GraduationCap, Calendar, MapPin } from "lucide-react";
 
 const educationData = [
     {
-        degree: "Bachelor of Science in Computer Science & Engineering",
-        institution: "University Name (e.g. BUET / BracU / NSU)",
-        duration: "Jan 2020 - Dec 2024",
-        location: "Dhaka, Bangladesh",
-        description: "Focus on Software Engineering, Data Structures, Algorithms, and Web Technologies. Completed a final year project on scalable microservices context."
-    },
-    // Add HSC and SSC or other degrees if necessary
+        degree: "Bachelor of Business Administration (BBA)",
+        institution: "Bangladesh Open University",
+        duration: "Present",
+        location: "Bangladesh",
+        description: "Pursuing a comprehensive curriculum encompassing business strategies, management principles, economics, and organizational behavior, while simultaneously pursuing a career in web development."
+    }
 ];
 
 const Education = () => {

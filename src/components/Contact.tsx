@@ -41,8 +41,8 @@ const Contact = () => {
                             </div>
                             <div>
                                 <p className="text-secondary text-sm">Email</p>
-                                <a href="mailto:ikhtiajarif@example.com" className="text-white font-semibold text-lg group-hover:text-accent transition-colors duration-300">
-                                    ikhtiajarif@example.com
+                                <a href="mailto:md.ikhtaijarif@gmail.com" className="text-white font-semibold text-lg group-hover:text-accent transition-colors duration-300">
+                                    md.ikhtaijarif@gmail.com
                                 </a>
                             </div>
                         </div>
@@ -53,8 +53,8 @@ const Contact = () => {
                             </div>
                             <div>
                                 <p className="text-secondary text-sm">Phone</p>
-                                <a href="tel:+8801700000000" className="text-white font-semibold text-lg group-hover:text-green-500 transition-colors duration-300">
-                                    +880 17 0000 0000
+                                <a href="tel:+8801753166323" className="text-white font-semibold text-lg group-hover:text-green-500 transition-colors duration-300">
+                                    +880 17 5316 6323
                                 </a>
                             </div>
                         </div>
@@ -65,8 +65,8 @@ const Contact = () => {
                             </div>
                             <div>
                                 <p className="text-secondary text-sm">WhatsApp</p>
-                                <a href="https://wa.me/8801700000000" target="_blank" rel="noopener noreferrer" className="text-white font-semibold text-lg group-hover:text-green-600 transition-colors duration-300">
-                                    +880 17 0000 0000
+                                <a href="https://wa.me/8801753166323" target="_blank" rel="noopener noreferrer" className="text-white font-semibold text-lg group-hover:text-green-600 transition-colors duration-300">
+                                    +880 17 5316 6323
                                 </a>
                             </div>
                         </div>
