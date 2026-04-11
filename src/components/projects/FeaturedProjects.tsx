@@ -1,10 +1,8 @@
-
 'use client'
 
 import { fadeIn, textVariant } from "@/utils/motion";
 import { motion } from "framer-motion";
 import ProjectCard, { TProject } from "./ProjectCard";
-
 
 type TProjectProp = {
   projectData: TProject[]
@@ -13,7 +11,7 @@ type TProjectProp = {
 const FeaturedProjects = ({ projectData }: TProjectProp) => {
 
   return (
-    <div className="py-10">
+    <section id="projects" className="py-20">
       <motion.div variants={textVariant()}>
         <p className={`section-sub-text`}>My Works</p>
         <h2 className={`section-head-text`}>Projects.</h2>
@@ -30,7 +28,7 @@ const FeaturedProjects = ({ projectData }: TProjectProp) => {
         project management abilities.
       </motion.p>
 
-      <div className="mt-20 flex flex-wrap justify-between">
+      <div className="mt-20 flex flex-wrap justify-center lg:justify-start gap-10">
 
         {
           projectData && projectData?.map((project: TProject) => (
@@ -39,7 +37,7 @@ const FeaturedProjects = ({ projectData }: TProjectProp) => {
           ))
         }
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -8,6 +8,15 @@ import Link from 'next/link';
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+const navLinks = [
+    { id: "/", title: "Home" },
+    { id: "/#about", title: "About" },
+    { id: "/#skills", title: "Skills" },
+    { id: "/#experience", title: "Experience" },
+    { id: "/#projects", title: "Projects" },
+    { id: "/blog", title: "Blog" },
+    { id: "/#contact", title: "Contact" },
+];
 
 export type UserProps = {
     user?: {
@@ -16,119 +25,82 @@ export type UserProps = {
         image?: string | null | undefined
     }
 }
-const Navbar = ({ session }: { session: UserProps | null }) => {
+
+const Navbar = ({ session }: { session?: UserProps | null }) => {
     const pathname = usePathname();
     const [toggle, setToggle] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-        if (session) {
-            localStorage.setItem("session", JSON.stringify(session));
-        }
-    }, [session]);
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            if (scrollTop > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
 
-    const isActive = (path: string) => pathname === path ? "text-white" : "text-secondary hover:text-white";
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const isActive = (path: string) => pathname === path ? "text-white font-semibold" : "text-secondary hover:text-white transition-colors";
 
     return (
-        <div className={`padding-x w-full  py-5 fixed top-0 z-20 bg-primary`}>
+        <nav className={`w-full flex items-center py-4 fixed top-0 z-50 transition-all duration-300 ${scrolled ? "bg-primary/80 backdrop-blur-md shadow-lg" : "bg-transparent"}`}>
+            <div className="w-full flex justify-between items-center max-w-7xl mx-auto px-6 sm:px-16">
+                <Link
+                    href="/"
+                    onClick={() => {
+                        window.scrollTo(0, 0);
+                    }}
+                    className="flex items-center gap-2"
+                >
+                    <Image src={logo} alt="logo" height={40} width={40} className="object-contain" />
+                    <p className="text-white text-[18px] font-bold cursor-pointer flex">
+                        Ikhtiaj Arif &nbsp;
+                        <span className="sm:block hidden text-accent">| Portfolio</span>
+                    </p>
+                </Link>
 
-            <div className="w-[93%] flex justify-between items-center max-w-7xl mx-auto ">
+                <ul className="list-none hidden lg:flex flex-row gap-8">
+                    {navLinks.map((nav) => (
+                        <li key={nav.id}>
+                            <Link href={nav.id} className={`${isActive(nav.id)} text-[15px] font-medium tracking-wide`}>
+                                {nav.title}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
 
-                <div className="w-full lg:w-auto justify-between flex items-center ">
-                    <Link
-                        href="/"
-                        className="ml-4 text-xl font-semibold flex items-center gap-1 text-gray-800 hover:text-gray-600"
-                    >
-                        <Image src={logo} alt="logo" height={36} width={36} className="object-contain" />
-                        <p className="text-white text-[18px] font-bold cursor-pointer flex">
-                            Ikhtiaj Arif &nbsp;
-                            <span className="sm:block hidden">|&nbsp; Portfolio</span>
-                        </p>
-                    </Link>
-
-                    <div className="relative lg:hidden">
-                        <div
-                            onClick={() => setToggle(!toggle)}
-                            tabIndex={0}
-                            role="button"
-                            className="p-2 h-10 w-10 rounded-md hover:bg-black-100 focus:outline-none"
-                        >
-                            <Image src={toggle ? close : menu} alt="menu" className="object-fill:cover" height={30} width={30} />
-                        </div>
-                        {
-                            toggle && <ul
-                                tabIndex={0}
-                                className="absolute mt-3 right-0 z-10 p-4  shadow-md bg-tertiary rounded-md w-52"
-                            >
-                                <li className="hover:text-gray-600 p-2">
-                                    <Link href="/" className={isActive('/')} >Home</Link>
+                <div className="lg:hidden flex flex-1 justify-end items-center">
+                    <Image
+                        src={toggle ? close : menu}
+                        alt="menu"
+                        height={28}
+                        width={28}
+                        className="object-contain cursor-pointer"
+                        onClick={() => setToggle(!toggle)}
+                    />
+                    <div className={`${!toggle ? "hidden" : "flex"} p-6 bg-tertiary/90 backdrop-blur-xl absolute top-16 right-0 mx-4 my-2 min-w-[200px] z-10 rounded-2xl shadow-2xl ring-1 ring-white/10 transition-all`}>
+                        <ul className="list-none flex justify-end items-start flex-col gap-4">
+                            {navLinks.map((nav) => (
+                                <li
+                                    key={nav.id}
+                                    className={`${isActive(nav.id)} font-poppins font-medium cursor-pointer text-[16px]`}
+                                    onClick={() => {
+                                        setToggle(!toggle);
+                                    }}
+                                >
+                                    <Link href={nav.id}>{nav.title}</Link>
                                 </li>
-                                <li className="hover:text-gray-600 p-2">
-                                    <Link href="/projects" className={isActive('/projects')}>Projects</Link>
-                                </li>
-                                <li className="hover:text-gray-600 p-2" >
-                                    <Link href="/blog" className={isActive('/blog')}>Blog</Link>
-                                </li>
-                                <li className="hover:text-gray-600 p-2">
-                                    <Link href="/contact" className={isActive('/contact')}>Contact</Link>
-                                </li>
-                                {/* <li className="hover:text-gray-600 p-2 mb-2">
-                                    <Link href="/dashboard" className={isActive('/dashboard')}>Dashboard</Link>
-                                </li> */}
-                                {/* {
-                                    session?.user ? (
-                                        <button onClick={() => signOut()} className="border border-red-500 text-red-500 px-5 py-2 rounded-full hover:bg-red-500 hover:text-black transition duration-200">
-                                            Logout
-                                        </button>) :
-                                        (<Link
-                                            href="/login"
-                                            className="border border-teal-500 text-teal-500 px-5 py-2 rounded-full hover:bg-teal-500 hover:text-black transition duration-200"
-                                        >
-                                            Login
-                                        </Link>)
-                                } */}
-                            </ul>
-                        }
-
+                            ))}
+                        </ul>
                     </div>
                 </div>
-
-                <div className="hidden lg:flex lg:ml-[-120px]">
-                    <ul className="flex space-x-6 text-gray-800">
-                        <li className="hover:text-gray-600">
-                            <Link href="/" className={isActive('/')} >Home</Link>
-                        </li>
-                        <li className="hover:text-gray-600">
-                            <Link href="/projects" className={isActive('/projects')}>Projects</Link>
-                        </li>
-                        <li className="hover:text-gray-600">
-                            <Link href="/blog" className={isActive('/blog')}>Blog</Link>
-                        </li>
-                        <li className="hover:text-gray-600">
-                            <Link href="/contact" className={isActive('/contact')}>Contact</Link>
-                        </li>
-                        {/* <li className="hover:text-gray-600">
-                            <Link href="/dashboard" className={isActive('/dashboard')}>Dashboard</Link>
-                        </li> */}
-                    </ul>
-                </div>
-
-                <div className="hidden md:flex items-center px-5">
-
-                    {/* {
-                        session?.user ? (
-                            <button onClick={() => signOut()} className="border border-red-500 text-red-500 px-5 py-2 rounded-full hover:bg-red-500 hover:text-black transition duration-200">
-                                Logout
-                            </button>) :
-                            (<Link
-                                href="/login"
-                                className="border border-teal-500 text-teal-500 px-5 py-2 rounded-full hover:bg-teal-500 hover:text-black transition duration-200"
-                            >
-                                Login
-                            </Link>)
-                    } */}
-                </div>
             </div>
-        </div>
+        </nav>
     );
 };
 

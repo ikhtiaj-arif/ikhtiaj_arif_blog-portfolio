@@ -117,7 +117,7 @@ This project is licensed under the **MIT License**.
 
 ---
 ## 🌎 **Connect with Me**
-📧 Email: your-email@example.com  
-🔗 LinkedIn: [your-profile](https://linkedin.com/in/your-profile)  
-🐦 Twitter: [@yourhandle](https://twitter.com/yourhandle)
+📧 Email: md.ikhtiajarif@gmail.com  
+🔗 LinkedIn: [your-profile](https://www.linkedin.com/in/ikhtiaj-arif/)  
+
 

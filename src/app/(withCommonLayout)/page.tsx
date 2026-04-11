@@ -1,39 +1,27 @@
 import Contact from "@/components/Contact";
-import Courses from "@/components/courses/Courses";
 import Experience from "@/components/experience/Experience";
-import Feedback from "@/components/feedback/Feedback";
 import Intro from "@/components/introduction/Intro";
 import FeaturedProjects from "@/components/projects/FeaturedProjects";
 import Tech from "@/components/tech/Tech";
+import Hero from "@/components/Hero";
+import Education from "@/components/education/Education";
 
 export default async function Home() {
-  const res = await fetch(`https://blog-server-l2a3.vercel.app/api/projects`)
+  const res = await fetch(`https://blog-server-l2a3.vercel.app/api/projects`, { next: { revalidate: 3600 } })
   const data = await res.json();
-  const projectData = data?.data
-  // console.log(projectData);
+  const projectData = data?.data || [];
+
   return (
-    <>
-      <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
+    <div className="w-full relative z-0">
+      <Hero />
+      <div className="relative z-0">
         <Intro />
-      </div>
-      <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
-        <Courses />
-      </div>
-      <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
-        <Experience />
-      </div>
-      <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
         <Tech />
-      </div>
-      <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
+        <Education />
+        <Experience />
         <FeaturedProjects projectData={projectData} />
-      </div>
-      <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
-        <Feedback />
-      </div>
-      <div className="sm:px-16 px-6 sm:py-16 py-10 max-w-7xl mx-auto relative z-0 " >
         <Contact />
       </div>
-    </>
+    </div>
   );
 }
