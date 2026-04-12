@@ -1,12 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */
-"use client";
 
-import React, { useState } from "react";
+"use client";
 import backend from "@/assets/backend.png";
 import creator from "@/assets/creator.png";
 import mobile from "@/assets/mobile.png";
 import web from "@/assets/web.png";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
+import React, { useState } from "react";
 import ServiceCard from "./ServiceCard";
 
 const services = [
@@ -28,8 +27,9 @@ const services = [
   },
 ];
 
+type Direction = "up" | "down" | "left" | "right";
 // Animation Variants
-const fadeIn = (direction = "up", delay = 0) => {
+const fadeIn = (direction: Direction = "up", delay: number = 0): Variants => {
   return {
     hidden: {
       opacity: 0,
@@ -41,7 +41,7 @@ const fadeIn = (direction = "up", delay = 0) => {
       x: 0,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring", // ✅ now correctly inferred
         duration: 0.75,
         delay,
       },
@@ -59,7 +59,7 @@ const ExpandableSection = ({ title, children, previewCount = 1 }: { title: strin
       <h3 className="text-xl font-bold text-white mb-4">{title}</h3>
       <div className="text-secondary text-[16px] leading-[30px] space-y-4">
         {childArray.slice(0, previewCount)}
-        
+
         <AnimatePresence>
           {isExpanded && (
             <motion.div
@@ -76,8 +76,8 @@ const ExpandableSection = ({ title, children, previewCount = 1 }: { title: strin
       </div>
 
       {isLong && (
-        <button 
-          onClick={() => setIsExpanded(!isExpanded)} 
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
           className="mt-4 text-accent font-semibold hover:text-white transition-colors text-sm flex items-center"
         >
           {isExpanded ? "Show less" : "Read more..."}
