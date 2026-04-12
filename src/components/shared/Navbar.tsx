@@ -26,7 +26,7 @@ export type UserProps = {
     }
 }
 
-const Navbar = ({ session }: { session?: UserProps | null }) => {
+const Navbar = () => {
     const pathname = usePathname();
     const [toggle, setToggle] = useState(false);
     const [scrolled, setScrolled] = useState(false);

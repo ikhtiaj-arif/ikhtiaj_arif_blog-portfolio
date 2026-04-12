@@ -1,4 +1,3 @@
-import { TProject } from "@/components/projects/ProjectCard";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -11,6 +10,7 @@ const ProjectDetailsPage = async ({ params }: { params: Promise<{ projectId: str
 
     const projectData = await res.json();
     // Use any so we can safely check property without TS raging
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const project: any = projectData?.data;
 
     return (

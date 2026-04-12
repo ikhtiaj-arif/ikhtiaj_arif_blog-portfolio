@@ -30,7 +30,7 @@ const Contact = () => {
                     <div>
                         <h4 className="text-2xl font-bold text-white mb-6">Contact Information</h4>
                         <p className="text-secondary mb-8">
-                            Feel free to reach out to me directly using any of the methods below. I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+                            Feel free to reach out to me directly using any of the methods below. I&apos;m always open to discussing new projects, creative ideas or opportunities to be part of your visions.
                         </p>
                     </div>
 

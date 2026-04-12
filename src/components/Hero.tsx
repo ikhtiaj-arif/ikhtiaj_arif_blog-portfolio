@@ -28,7 +28,7 @@ const Hero = () => {
                             <TypingText
                                 text={
                                     <h1 className="hero-head-text text-white">
-                                        Hi, I'm <span className="text-accent">Arif</span>
+                                        Hi, I&apos;m <span className="text-accent">Arif</span>
                                     </h1>
                                 }
                             />
