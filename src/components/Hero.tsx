@@ -49,7 +49,8 @@ const Hero = () => {
                                 className="mt-8 flex flex-wrap items-center gap-6"
                             >
                                 <a
-                                    href="/ikhtiaj_resume.pdf"
+                                    // href="/ikhtiaj_resume.pdf"
+                                    href="https://drive.google.com/uc?export=download&id=1dYYKjzn92qfeBcCCIkMZvKBAPgUt8r8d"
                                     download="ikhtiaj_resume.pdf"
                                     className="relative inline-flex items-center justify-center px-8 py-3 text-lg font-bold text-white transition-all duration-200 bg-accent font-pj rounded-xl hover:bg-transparent hover:text-accent border-2 border-accent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent"
                                 >
